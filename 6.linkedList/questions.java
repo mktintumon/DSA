@@ -398,7 +398,102 @@ public class questions {
         this.tail = ans.tail;
         this.size = ans.size;
      }
-     
+
+     // 9. reverse linkedlist recursively
+
+     private void displayReverseHelper(Node node){
+      if(node == null){
+        return;
+      }
+      displayReverseHelper(node.next);
+      System.out.print(node.data + " ");
+    }
+
+    public void displayReverse(){
+      displayReverseHelper(head);
+      System.out.println();
+    }
+
+    // 10. Reverse linked list pointer recursively
+
+    private void reversePRHelper(Node node){
+      if(node == null){
+        return;
+      }
+
+      reversePRHelper(node.next);
+      
+      // skips the tail and works for (size-2)th node till head
+      if(node != tail){
+        node.next.next = node;
+      }
+
+    }
+
+    public void reversePR(){
+      reversePRHelper(this.head);
+
+      //swap head and tail
+      Node temp = head;
+      head = tail;
+      tail = temp;
+    }
+    
+    // 11. linkedlist Palindrome
+    
+    Node left; // global
+    private boolean palindHelper(Node right){
+      if(right == null){
+        return true;
+      }
+
+      boolean recAns = palindHelper(right.next);
+      
+      if(recAns == false){
+        return false;
+      }
+
+      if(left.data != right.data){
+        return false;
+      }
+      else{
+        left = left.next;
+        return true;
+      }
+
+    }
+
+    public boolean IsPalindrome() {
+      left = this.head;
+      return palindHelper(head);
+    }
+
+    // 12. Intersection point of 2 linked list
+
+    public static int findIntersection(LinkedList one, LinkedList two){
+      Node c1 = one.head;
+      Node c2 = two.head;
+
+      int diff = Math.abs(one.size - two.size);
+
+      if(one.size > two.size){
+         for(int i=0 ; i<diff ; i++){
+            c1 = c1.next;
+         }
+      }
+       else{
+         for(int i=0 ; i<diff ; i++){
+            c2 = c2.next;
+       }  
+      }
+
+      while(c1!=c2){
+        c1 = c1.next;
+        c2 = c2.next;
+      }
+
+      return c1.data;
+   }
 }
 
   public static void main(String[] args) throws Exception {

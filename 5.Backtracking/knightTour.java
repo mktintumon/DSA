@@ -28,7 +28,7 @@ public class knightTour {
         if(upcomingMove == chess.length * chess.length){
             chess[r][c] = upcomingMove;
             displayBoard(chess);
-            chess[r][c] = 0;
+            chess[r][c] = 0;  // mark zero after display and proceed for next configuration
             return;
         }
         //mark
