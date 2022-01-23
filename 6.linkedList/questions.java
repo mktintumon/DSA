@@ -521,6 +521,45 @@ public class questions {
       fleft = this.head;
       foldHelper(head,0);
     }
+
+
+    // 14.Add two linked list
+
+    public static  int addHelper(Node one , int pv1 , Node two , int pv2 , LinkedList ans){
+      if(one == null && two == null){
+        return 0; // return carry-> 0
+      }
+
+      int sum = 0;
+      if(pv1 > pv2){
+          int oldCarry = addHelper(one.next, pv1-1, two, pv2, ans);
+           sum = one.data + oldCarry;
+      }else if(pv1 < pv2 ){
+          int oldCarry = addHelper(one, pv1, two.next, pv2-1, ans);
+           sum = two.data + oldCarry;
+      }else{
+          int oldCarry = addHelper(one.next, pv1-1, two.next, pv2-1, ans);
+
+           sum = one.data + two.data + oldCarry;
+      }
+
+          int data = sum %10;
+          int newCarry = sum/10;
+
+          ans.addFirst(data);
+          return newCarry;
+   }
+
+   public static LinkedList addTwoLists(LinkedList one, LinkedList two) {
+      LinkedList ans = new LinkedList();
+
+      int oldCarry = addHelper(one.head, one.size , two.head , two.size , ans );
+      if(oldCarry > 0){
+        ans.addFirst(oldCarry);
+      }
+
+      return ans;
+   }
 }
 
   public static void main(String[] args) throws Exception {
