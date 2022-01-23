@@ -494,6 +494,33 @@ public class questions {
 
       return c1.data;
    }
+
+   // 13. fold a linked list
+
+    Node fleft;
+    private void foldHelper(Node right , int count){
+         if(right == null){
+             return;
+         }
+
+         foldHelper(right.next , count+1); 
+
+         if(count > (size/2)){
+           Node temp = fleft.next;
+           fleft.next = right;
+           right.next = temp;
+           fleft = temp;
+         }
+         else if(count == (size/2)){
+             tail = right;
+             tail.next = null;
+         }
+    }
+
+    public void fold() {
+      fleft = this.head;
+      foldHelper(head,0);
+    }
 }
 
   public static void main(String[] args) throws Exception {
