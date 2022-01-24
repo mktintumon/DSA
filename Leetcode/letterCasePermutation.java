@@ -1,9 +1,9 @@
-package DSA.Leetcode;
+
 import java.util.Scanner;
 import java.util.ArrayList;
 
+// leetcode - 784
 public class letterCasePermutation {
-
 
     public static ArrayList<String> Permutation(String s) {
         if(s.length() == 0){
