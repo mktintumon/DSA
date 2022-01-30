@@ -28,7 +28,51 @@ public class goldmine {
        return dp[i][j];
     }
 
-    
+    //tabulation method
+    public static int goldmineT(int[][] grid , int[][] dp){
+        int n = grid.length;
+        int m = grid[0].length;
+
+        //start from last colm to first col
+        for(int j=m-1 ; j>=0 ; j--){ // start from last column 
+            for(int i=0 ; i<n ; i++){ // move in the row
+
+                if(j==m-1){  // last column
+                    dp[i][j] = grid[i][j];
+                }
+
+                else if(i==0){ // first row
+                     int op1 = dp[i][j+1];
+                     int op2 = dp[i+1][j+1];
+
+                     dp[i][j] = grid[i][j] + Math.max(op1, op2);
+                }
+
+                else if(i == n-1){ // last row
+                    int op1 = dp[i][j+1];
+                    int op2 = dp[i-1][j+1];
+
+                    dp[i][j] = grid[i][j] + Math.max(op1, op2);
+                }
+
+                else{ // left elements
+                    int op1 = dp[i][j+1];
+                    int op2 = dp[i+1][j+1];
+                    int op3 = dp[i-1][j+1];
+
+                    dp[i][j] = grid[i][j] + Math.max(op1, Math.max(op2 , op3));
+                }
+            }
+        }
+
+        int ans = 0;
+        for(int i=0 ; i<n ; i++ ){
+            if(dp[i][0] > ans){
+                ans = dp[i][0];
+            }
+        }
+        return ans;
+    }
 
     public static void main(String[] args) throws Exception {
         Scanner scn = new Scanner(System.in);
