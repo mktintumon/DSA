@@ -2,6 +2,19 @@ import java.util.*;
 
 public class paintHouse {
 
+    //EXTRA LOGIC
+    // To avoid repeated use of math.min we create global fun using java feature(...)
+
+    /*
+    public static long min (long...arr){
+        long minn = (long)1e15;
+        for(long x : arr)
+            minn = Math.min(x, minn);
+        return minn;
+    }
+
+    */
+
 
     public static long minPaint(int[][] arr){
         int n = arr.length;
