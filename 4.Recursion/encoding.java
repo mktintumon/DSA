@@ -8,6 +8,7 @@ public class encoding {
         
         String str = sc.next();
         printEncodings(str,"");
+        sc.close();
     }
 
     public static void printEncodings(String str,String path) {
