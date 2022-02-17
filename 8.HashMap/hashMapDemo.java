@@ -1,6 +1,6 @@
 import java.util.*;
 
-public class demo {
+public class hashMapDemo {
 
   public static void main(String[] args) {
       
