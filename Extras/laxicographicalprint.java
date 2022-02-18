@@ -9,4 +9,23 @@ output
 
 public class laxicographicalprint {
     public static Scanner sc = new Scanner(System.in);
+
+    public static void print(int i , int n){
+        if(i>= n ){
+           return;
+        }
+
+        System.out.println(i); // printing all output from here
+
+        for(int j=0 ; j<=9 ; j++){
+            print(10*i + j , n);
+        }
+    }
+
+    public static void main(String[] args) {
+        int n = sc.nextInt();
+        for(int i=1 ; i<=9 ; i++ ){
+            print(i,n);
+        }
+    }
 }
