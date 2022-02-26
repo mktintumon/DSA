@@ -1,4 +1,3 @@
-package DSA.Backtracking;
 import java.util.*;
 
 public class knightTour {

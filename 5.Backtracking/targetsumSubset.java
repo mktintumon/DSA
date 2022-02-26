@@ -1,5 +1,4 @@
-package DSA.Backtracking;
-import java.io.*;
+import java.util.*;
 
 public class targetsumSubset {
     public static Scanner sc = new Scanner(System.in);
