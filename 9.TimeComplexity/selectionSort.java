@@ -1,17 +1,21 @@
 import java.util.*;
 
-public class bubbleSort {
+public class selectionSort {
 
-  public static void bubbleSorting(int[] arr) {
-        int n = arr.length;
-        for(int i = 1 ; i<= n-1 ; i++){
-            for(int j=0 ; j<= n-i-1 ; j++){
-                if(isSmaller(arr , j+1 , j) == true){
-                swap(arr , j+1 , j);
-                }
+  public static void selection_Sort(int[] arr) {
+    int n = arr.length;
+
+    for(int i=0 ; i<n-1 ; i++){
+        int minEleIdx = i;
+        
+        for(int j=i+1 ; j<n ; j++){
+            if( isSmaller(arr , j , minEleIdx) == true ){
+              minEleIdx = j;
             }
-      }
-    
+        }
+
+        swap(arr , i , minEleIdx);
+    }
   }
 
   // used for swapping ith and jth elements of array
@@ -45,7 +49,7 @@ public class bubbleSort {
     for (int i = 0; i < n; i++) {
       arr[i] = scn.nextInt();
     }
-    bubbleSorting(arr);
+    selection_Sort(arr);
     print(arr);
     scn.close();
   }

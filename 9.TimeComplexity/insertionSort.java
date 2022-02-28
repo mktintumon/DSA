@@ -1,16 +1,21 @@
 import java.util.*;
 
-public class bubbleSort {
+public class insertionSort {
 
-  public static void bubbleSorting(int[] arr) {
-        int n = arr.length;
-        for(int i = 1 ; i<= n-1 ; i++){
-            for(int j=0 ; j<= n-i-1 ; j++){
-                if(isSmaller(arr , j+1 , j) == true){
-                swap(arr , j+1 , j);
-                }
-            }
+  public static void insertion_Sort(int[] arr) {
+    int n = arr.length;
+
+    for(int i=1; i<n ; i++){
+      for(int j=i-1 ; j>=0 ; j--){
+        if(isGreater(arr , j , j+1) == true){
+          swap(arr , j , j+1);
+        }
+        else{
+          //relatively already sorted
+          break;
+        }
       }
+    }
     
   }
 
@@ -22,8 +27,8 @@ public class bubbleSort {
     arr[j] = temp;
   }
 
-  // return true if ith element is smaller than jth element
-  public static boolean isSmaller(int[] arr, int i, int j) {
+  // return true if jth element is greater than ith element
+  public static boolean isGreater(int[] arr, int j, int i) {
     System.out.println("Comparing " + arr[i] + " and " + arr[j]);
     if (arr[i] < arr[j]) {
       return true;
@@ -45,7 +50,7 @@ public class bubbleSort {
     for (int i = 0; i < n; i++) {
       arr[i] = scn.nextInt();
     }
-    bubbleSorting(arr);
+    insertion_Sort(arr);
     print(arr);
     scn.close();
   }
