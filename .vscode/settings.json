@@ -1,14 +1,14 @@
 {
     "java.project.sourcePaths": [
         "Extras",
-        "7.DP",
-        "6.linkedList",
-        "4.Recursion",
-        "8.HashMap",
-        "0.Patterns",
-        "5.Backtracking",
-        "3.Strings",
-        "9.TimeComplexity"
+        "07.DP",
+        "06.linkedList",
+        "04.Recursion",
+        "08.HashMap",
+        "00.Patterns",
+        "05.Backtracking",
+        "03.Strings",
+        "09.TimeComplexity"
         
     ]
 
