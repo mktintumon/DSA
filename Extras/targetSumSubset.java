@@ -1,15 +1,15 @@
-
 import java.util.*;
 
-public class targetsumSubset {
+public class targetSumSubset {
+
     public static Scanner sc = new Scanner(System.in);
 
     public static void targetSum(int[] arr , String path , int idx , int tar , int sum){
-        if(sum > tar){
+         if(sum > tar){
             return;
-        } 
-        
-        if(arr.length ==idx){
+        }
+         
+         if(arr.length == idx){
              //reach the base case then check for the sum=target
              //if not get the sum=target then it backtrace the path 
              if(sum == tar){
@@ -19,7 +19,7 @@ public class targetsumSubset {
          }
 
 
-         targetSum(arr, path+arr[idx]+",", idx+1 , tar ,sum+arr[idx]); // pick
+         targetSum(arr, path+arr[idx]+", ", idx+1 , tar ,sum+arr[idx]); // pick
          targetSum(arr, path, idx+1, tar, sum); // not pick
 
     }
@@ -35,4 +35,5 @@ public class targetsumSubset {
         targetSum(arr,"" ,0,tar,0);    
         
     }
+
 }

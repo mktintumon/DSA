@@ -1,7 +1,7 @@
 
 import java.util.*;
 
-public class TargetSumSubset {
+public class targetSubset {
 
     public static boolean targetSum(int[] arr , boolean[][] dp){
 
