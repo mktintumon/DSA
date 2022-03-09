@@ -29,13 +29,13 @@ public class climbStairMinMove {
                 if(min != Integer.MAX_VALUE ){
                     dp[i] = min + 1;
                 }
-                // else do nothing -> remain as null
+                
                 
             }
         }
         
         System.out.println(dp[0]);
-        // if the place will remain null it will remain null
+        
         sc.close();
     }
 
