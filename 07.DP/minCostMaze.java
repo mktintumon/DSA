@@ -16,6 +16,8 @@ public class minCostMaze {
         }
         int[][] dp = new int[n][m];
 
+        // NB -> we can also fill the dp from 0,0 to n-1,m-1
+
         //backward direction filling dp array
         for(int i=n-1 ; i>=0 ; i--){
             for(int j=m-1 ; j>=0 ; j--){
