@@ -22,7 +22,7 @@ public class largestHistogramArea {
         return maxArea;
     }
     
-    private int[] nsor(int[] heights){
+    public static int[] nsor(int[] heights){
         int n = heights.length;
         int[] ans = new int[n];
         Arrays.fill(ans,n);
