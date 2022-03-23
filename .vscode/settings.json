@@ -1,17 +1,16 @@
 {
     "java.project.sourcePaths": [
         "Extras",
+        "10.Stacks",
+        "09.TimeComplexity",
+        "08.HashMap",
         "07.DP",
         "06.linkedList",
-        "04.Recursion",
-        "08.HashMap",
-        "00.Patterns",
         "05.Backtracking",
+        "04.Recursion",
         "03.Strings",
-        "09.TimeComplexity",
-        "10.Stacks_Queue",
-        "11.BinaryTree"
-        
+        "00.Patterns",
+        "11.BinaryTree",
     ]
 
 }
