@@ -1,28 +1,22 @@
 import java.util.*;
-
-public class construction {
-
-    // making our own structure -> pair -> (node , state) -> eg:- (left , 2)
+public class traversalRecursive{
     public static class pair{
         Node node;
         int state;
-
-        pair(){} // default constructor
-
-        pair(Node node, int state){ // parametrized constructor
+        pair(){}
+        pair(Node node, int state){
             this.node = node;
             this.state = state;
         }
     }
 
-    // Class for Tree
+
     public static class Node{
         int val;
         Node left;
         Node right;
 
         Node(){}
-
         Node(int val){
             this.val = val;
         }
@@ -33,54 +27,42 @@ public class construction {
             this.right = right;
         }
     }
-    
 
-    // Display Tree
-    public static void display(Node root){
+    public static void preOrder(Node root){
         if(root == null)
             return;
-        
-        if(root.left != null){
-            System.out.print(root.left.val);
-        }
-        else{
-            System.out.print("--");
-        }
+        System.out.println(root.val);
+        preOrder(root.left);
+        preOrder(root.right);
+    }
 
-        System.out.print(" <- " + root.val + " -> " );
+    public static void inOrder(Node root){
+        if(root == null)
+            return;
 
-        if(root.right != null){
-            System.out.print(root.right.val);
-        }
-        else{
-            System.out.print("--");
-        }
-        System.out.println();
+        inOrder(root.left);
+        System.out.println(root.val);
+        inOrder(root.right);
+    }
 
-        display(root.left);
-        display(root.right);
+    public static void postOrder(Node root){
+        if(root == null)
+            return;
 
+        postOrder(root.left);
+        postOrder(root.right);
+        System.out.println(root.val);
     }
 
     public static void main(String [] args){
         Integer [] arr = {50,25,12,null,null,37, 30, null, null, null, 75, 62, null, 70, null, null, 87, null, null };
-        
         Node root = new Node(arr[0]);
         Stack<pair> st = new Stack<>();
         pair rootPair = new pair(root, 1);
         st.push(rootPair);
-        
         int idx = 1;
         while(st.size() != 0){
             pair peekPair = st.peek();
-
-            /*
-                if peekPair == 1 -> waiting for left node
-                if peekPair == 2 -> waiting for right node
-                if peekPair == 3 -> acheived all node -> pop()
-                NOTE:- we skip the null node
-        
-            */
 
             if(peekPair.state == 1){
                 peekPair.state++;
@@ -93,7 +75,8 @@ public class construction {
                     
 
                 }
-                idx++;     
+                idx++;
+                
             }
             else if(peekPair.state == 2){
                 peekPair.state++;
@@ -109,10 +92,21 @@ public class construction {
             else{
                 st.pop();
             }
-        } 
 
-         display(root);
+
+        }
+        
+
+        // display(root);
+
+        System.out.println("PreOrder is >>> ");
+        preOrder(root);
+
+        System.out.println("inOrder is >>> ");
+        inOrder(root);
+
+        System.out.println("PostOrder is >>> ");
+        postOrder(root);
+
     }
 }
-
-
