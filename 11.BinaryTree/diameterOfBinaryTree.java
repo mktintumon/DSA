@@ -1,4 +1,7 @@
-// Approach 1
+/*
+
+
+// APPROACH - 1
 
 class Solution {
     public int height(TreeNode root){
@@ -31,7 +34,7 @@ class Solution {
 }
 
 
-// Approach 2
+// APPROACH - 2
 
 class Solution {
     public class pair{
@@ -70,8 +73,9 @@ class Solution {
 }
 
 
-// Approach 3
-public int [] diameter(TreeNode node){
+// APPROACH 3
+
+    public int [] diameter(TreeNode node){
         if(node == null){
             return new int[]{-1, 0};
         }
@@ -111,4 +115,7 @@ public int [] diameter(TreeNode node){
         int myHeight = Math.max(lh,rh)+1;
         return myHeight;
     }
+
+
+*/
     
