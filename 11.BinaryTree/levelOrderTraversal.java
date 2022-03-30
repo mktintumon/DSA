@@ -53,6 +53,8 @@ public class levelOrderTraversal{
 
     }
 
+
+    // APPROACH - 1
     public static void levelOrder(Node root){
         Queue<Node> qu = new LinkedList<>();
         //seeding
@@ -74,6 +76,27 @@ public class levelOrderTraversal{
             }
         }
     }
+
+    // APPROACH - 2
+    
+//   public static void levelOrder(Node node) {
+//     Queue<Node> q = new LinkedList<>();
+//     q.add(node);
+
+//     while(q.size() != 0){
+//       int count = q.size();
+//       for(int i=0 ; i<count ; i++){
+//       Node rmv = q.remove();
+
+//       System.out.print(rmv.data + " ");
+
+//       if(rmv.left != null)  q.add(rmv.left);
+//       if(rmv.right != null) q.add(rmv.right);     
+//     }
+
+//       System.out.println();
+//     }
+//  }
 
 
     public static void main(String [] args){
