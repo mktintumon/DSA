@@ -1,7 +1,7 @@
 {
     "java.project.sourcePaths": [
         "Extras",
-        "10.Stacks",
+        "11.BinaryTree",
         "09.TimeComplexity",
         "08.HashMap",
         "07.DP",
@@ -10,7 +10,7 @@
         "04.Recursion",
         "03.Strings",
         "00.Patterns",
-        "11.BinaryTree",
+        "12.BinarySearchTree"
     ]
 
 }
