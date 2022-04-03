@@ -1,7 +1,3 @@
-
-
-   // LEETCODE 
-
 class Solution {
     public class TreeNode {
         int val;
@@ -16,22 +12,17 @@ class Solution {
         }
     }
 
-    
-    public int ans;
-    public int findTilt(TreeNode root) {
+
+
+    public TreeNode insertIntoBST(TreeNode root, int val) {
+        if(root == null) return new TreeNode(val);
         
-        travel(root);
-        return ans;
-    }
-    
-    public int travel(TreeNode root){
-        if(root == null) return 0;
+        if(val < root.val)
+        root.left = insertIntoBST(root.left , val);
         
-        int left = travel(root.left );
-        int right = travel(root.right );
+        if(val > root.val)
+        root.right = insertIntoBST(root.right , val);
         
-        ans += Math.abs(left-right);
-        return left + right + root.val;
+        return root;                  
     }
 }
-
