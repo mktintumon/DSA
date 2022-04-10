@@ -1,4 +1,4 @@
-class Solution {
+class deleteInBST {
     public class TreeNode {
         int val;
         TreeNode left;

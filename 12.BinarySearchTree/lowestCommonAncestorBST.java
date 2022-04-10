@@ -1,4 +1,4 @@
-class Solution {
+class lowestCommonAncestorBST {
         
     //   ITERATIVE METHOD    
        

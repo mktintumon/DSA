@@ -1,7 +1,7 @@
 
    // LEETCODE - 1325
 
-class Solution {
+class deleteLeaf {
     public class TreeNode {
         int val;
         TreeNode left;

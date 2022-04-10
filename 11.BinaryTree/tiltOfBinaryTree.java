@@ -2,7 +2,7 @@
 
    // LEETCODE 
 
-class Solution {
+class tiltOfBinaryTree {
     public class TreeNode {
         int val;
         TreeNode left;

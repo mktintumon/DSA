@@ -1,7 +1,7 @@
 
       //  LEETCODE - 700
 
-class Solution {
+class searchInBST {
     public class TreeNode {
         int val;
         TreeNode left;

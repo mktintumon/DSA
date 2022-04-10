@@ -1,7 +1,7 @@
 
         //LEETCODE - 110
 
-class Solution {
+class balancedBT {
     public class TreeNode {
         int val;
         TreeNode left;

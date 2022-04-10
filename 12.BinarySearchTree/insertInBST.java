@@ -1,4 +1,4 @@
-class Solution {
+class insertInBST {
     public class TreeNode {
         int val;
         TreeNode left;

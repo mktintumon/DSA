@@ -1,4 +1,4 @@
-class Solution {
+class sortedArrayToBST {
     public class TreeNode {
         int val;
         TreeNode left;
@@ -13,7 +13,7 @@ class Solution {
     }
 
 
-    public TreeNode sortedArrayToBST(int[] nums) {
+    public TreeNode sortedArrayBST(int[] nums) {
         if(nums.length == 0) return null;
         
         return createBST(nums, 0 , nums.length-1);
