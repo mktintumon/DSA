@@ -10,7 +10,8 @@
         "04.Recursion",
         "03.Strings",
         "00.Patterns",
-        "12.BinarySearchTree"
+        "12.BinarySearchTree",
+        "13.GenericTree"
     ]
 
 }
