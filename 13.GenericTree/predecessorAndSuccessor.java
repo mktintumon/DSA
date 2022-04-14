@@ -1,19 +1,11 @@
 import java.io.*;
+
 import java.util.*;
 
-/*
-
-   1. create Generic Tree
-   2. Find size
-   3. Find Max
-   4. Find height 
-
-*/
-
-public class createGenericTree {
+public class predecessorAndSuccessor {
   private static class Node {
     int data;
-    ArrayList<Node> children = new ArrayList<>();
+    ArrayList< Node> children = new ArrayList< >();
   }
 
   public static void display(Node node) {
@@ -32,7 +24,7 @@ public class createGenericTree {
   public static Node construct(int[] arr) {
     Node root = null;
 
-    Stack<Node> st = new Stack<>();
+    Stack< Node> st = new Stack< >();
     for (int i = 0; i < arr.length; i++) {
       if (arr[i] == -1) {
         st.pop();
@@ -53,39 +45,26 @@ public class createGenericTree {
     return root;
   }
 
-  public static int size(Node node){
-    if(node == null) return 0;
+  static Node predecessor;
+  static Node successor;
+  static int state;
 
-    int s=0;
-    for(Node child : node.children){
-      s += size(child);
+  public static void predecessorSuccessor(Node node, int data) {
+    // PreOrder - Travel and change  
+    if (state == 0) {
+      if (node.data == data) {
+        state++;
+      } else {
+        predecessor = node;
+      }
+    } else if (state == 1) {
+      successor = node;
+      state++;
     }
 
-    return s+1;
-  }
-
-
-  public static int max(Node node) {
-    int maxAns = Integer.MIN_VALUE;
-
-    for(Node child : node.children){
-        int maxChild = max(child);
-        maxAns = Math.max(maxChild,maxAns);
+    for (Node child : node.children) {
+      predecessorSuccessor(child, data);
     }
-
-    return Math.max(maxAns , node.data);
-  }
-
-
-  public static int height(Node node) {
-    int h = -1;
-
-    for(Node child : node.children){
-        int childH = height(child);
-        h = Math.max(childH,h);
-    }
-
-    return h+1;
   }
 
   public static void main(String[] args) throws Exception {
@@ -97,10 +76,24 @@ public class createGenericTree {
       arr[i] = Integer.parseInt(values[i]);
     }
 
+    int data = Integer.parseInt(br.readLine());
+
     Node root = construct(arr);
-    int sz = size(root);
-    System.out.println(sz);
-    // display(root);
+    predecessor = null;
+    successor = null;
+    state = 0;
+    predecessorSuccessor(root, data);
+    if (predecessor == null) {
+      System.out.println("Predecessor = Not found");
+    } else {
+      System.out.println("Predecessor = " + predecessor.data);
+    }
+
+    if (successor == null) {
+      System.out.println("Successor = Not found");
+    } else {
+      System.out.println("Successor = " + successor.data);
+    }
   }
 
 }

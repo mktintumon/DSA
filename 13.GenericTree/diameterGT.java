@@ -1,16 +1,7 @@
 import java.io.*;
 import java.util.*;
 
-/*
-
-   1. create Generic Tree
-   2. Find size
-   3. Find Max
-   4. Find height 
-
-*/
-
-public class createGenericTree {
+public class diameterGT {
   private static class Node {
     int data;
     ArrayList<Node> children = new ArrayList<>();
@@ -53,41 +44,39 @@ public class createGenericTree {
     return root;
   }
 
-  public static int size(Node node){
-    if(node == null) return 0;
+  /*
+      We have to calculate diameter at every node (not only at root) 
+      we will call height function and updating dia and print dia
+  */
 
-    int s=0;
-    for(Node child : node.children){
-      s += size(child);
+  static int dia = 0;
+  public static int height(Node root){
+    int dch = -1; // deepest child height
+    int sdch = -1; // second deepest child height
+
+    for(Node child : root.children){
+      int ch = height(child); // child height
+
+      if(ch > dch){
+        sdch = dch;
+        dch = ch;
+      }
+      else if(ch > sdch){
+        sdch = ch;
+      }
     }
 
-    return s+1;
-  }
+    int candidate = dch + sdch + 2;
 
-
-  public static int max(Node node) {
-    int maxAns = Integer.MIN_VALUE;
-
-    for(Node child : node.children){
-        int maxChild = max(child);
-        maxAns = Math.max(maxChild,maxAns);
+    if(candidate > dia){
+      dia = candidate;
     }
 
-    return Math.max(maxAns , node.data);
-  }
+    dch += 1;
+    return dch;
+  } 
 
-
-  public static int height(Node node) {
-    int h = -1;
-
-    for(Node child : node.children){
-        int childH = height(child);
-        h = Math.max(childH,h);
-    }
-
-    return h+1;
-  }
-
+  
   public static void main(String[] args) throws Exception {
     BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
     int n = Integer.parseInt(br.readLine());
@@ -98,9 +87,8 @@ public class createGenericTree {
     }
 
     Node root = construct(arr);
-    int sz = size(root);
-    System.out.println(sz);
-    // display(root);
+    height(root);
+    System.out.println(dia);
   }
 
 }

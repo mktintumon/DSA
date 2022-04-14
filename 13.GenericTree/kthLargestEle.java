@@ -1,19 +1,10 @@
 import java.io.*;
 import java.util.*;
 
-/*
-
-   1. create Generic Tree
-   2. Find size
-   3. Find Max
-   4. Find height 
-
-*/
-
-public class createGenericTree {
+public class kthLargestEle {
   private static class Node {
     int data;
-    ArrayList<Node> children = new ArrayList<>();
+    ArrayList< Node> children = new ArrayList<>();
   }
 
   public static void display(Node node) {
@@ -32,7 +23,7 @@ public class createGenericTree {
   public static Node construct(int[] arr) {
     Node root = null;
 
-    Stack<Node> st = new Stack<>();
+    Stack< Node> st = new Stack<>();
     for (int i = 0; i < arr.length; i++) {
       if (arr[i] == -1) {
         st.pop();
@@ -53,39 +44,31 @@ public class createGenericTree {
     return root;
   }
 
-  public static int size(Node node){
-    if(node == null) return 0;
 
-    int s=0;
-    for(Node child : node.children){
-      s += size(child);
+  static int floor;
+  public static void ceilAndFloor(Node node, int data) {
+    if (node.data < data) {
+      if (node.data > floor) {
+        floor = node.data;
+      }
     }
 
-    return s+1;
+    for (Node child : node.children) {
+      ceilAndFloor(child, data);
+    }
   }
 
+  public static int kthLargest(Node node, int k) {
+    int data = Integer.MAX_VALUE;
+    floor = Integer.MIN_VALUE;
 
-  public static int max(Node node) {
-    int maxAns = Integer.MIN_VALUE;
-
-    for(Node child : node.children){
-        int maxChild = max(child);
-        maxAns = Math.max(maxChild,maxAns);
+    for (int i = 0; i < k; i++) {
+      ceilAndFloor(node, data);
+      data = floor;
+      floor = Integer.MIN_VALUE;
     }
 
-    return Math.max(maxAns , node.data);
-  }
-
-
-  public static int height(Node node) {
-    int h = -1;
-
-    for(Node child : node.children){
-        int childH = height(child);
-        h = Math.max(childH,h);
-    }
-
-    return h+1;
+    return data;
   }
 
   public static void main(String[] args) throws Exception {
@@ -97,10 +80,11 @@ public class createGenericTree {
       arr[i] = Integer.parseInt(values[i]);
     }
 
+    int k = Integer.parseInt(br.readLine());
+
     Node root = construct(arr);
-    int sz = size(root);
-    System.out.println(sz);
-    // display(root);
+    int kthLargest = kthLargest(root, k);
+    System.out.println(kthLargest);
   }
 
 }

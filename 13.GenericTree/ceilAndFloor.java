@@ -1,16 +1,7 @@
 import java.io.*;
 import java.util.*;
 
-/*
-
-   1. create Generic Tree
-   2. Find size
-   3. Find Max
-   4. Find height 
-
-*/
-
-public class createGenericTree {
+public class ceilAndFloor {
   private static class Node {
     int data;
     ArrayList<Node> children = new ArrayList<>();
@@ -53,39 +44,30 @@ public class createGenericTree {
     return root;
   }
 
-  public static int size(Node node){
-    if(node == null) return 0;
+  
+  static int ceil;  // set at +infinity
+  static int floor; // set at -infinity
+  public static void ceilFloor(Node node, int data) {
+      
+    if(node.data > data){
+    // potential ceil members enter
 
-    int s=0;
-    for(Node child : node.children){
-      s += size(child);
+        if(node.data < ceil){
+        ceil = node.data;
+        }
+    }
+    else if(node.data < data){
+    // potential floor members enters
+
+        if(node.data > floor){
+        floor = node.data;
+        }
     }
 
-    return s+1;
-  }
-
-
-  public static int max(Node node) {
-    int maxAns = Integer.MIN_VALUE;
-
+    // travel 
     for(Node child : node.children){
-        int maxChild = max(child);
-        maxAns = Math.max(maxChild,maxAns);
+        ceilFloor(child , data);
     }
-
-    return Math.max(maxAns , node.data);
-  }
-
-
-  public static int height(Node node) {
-    int h = -1;
-
-    for(Node child : node.children){
-        int childH = height(child);
-        h = Math.max(childH,h);
-    }
-
-    return h+1;
   }
 
   public static void main(String[] args) throws Exception {
@@ -97,10 +79,14 @@ public class createGenericTree {
       arr[i] = Integer.parseInt(values[i]);
     }
 
+    int data = Integer.parseInt(br.readLine());
+
     Node root = construct(arr);
-    int sz = size(root);
-    System.out.println(sz);
-    // display(root);
+    ceil = Integer.MAX_VALUE;  // smallest among larger
+    floor = Integer.MIN_VALUE; // largest among smaller
+    ceilFloor(root, data);
+    System.out.println("CEIL = " + ceil);
+    System.out.println("FLOOR = " + floor);
   }
 
 }
