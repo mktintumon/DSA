@@ -11,7 +11,8 @@
         "03.Strings",
         "00.Patterns",
         "12.BinarySearchTree",
-        "13.GenericTree"
+        "13.GenericTree",
+        "14.Graph"
     ]
 
 }

@@ -1,6 +1,6 @@
 import java.util.*;
-
-public class levelOrderTraversal{
+public class levelOrderTravel
+{
     public static class pair{
         Node node;
         int state;
@@ -54,8 +54,6 @@ public class levelOrderTraversal{
 
     }
 
-
-    // APPROACH - 1
     public static void levelOrder(Node root){
         Queue<Node> qu = new LinkedList<>();
         //seeding
@@ -64,7 +62,7 @@ public class levelOrderTraversal{
         while(qu.size() > 0 ){
             //1. remove
             Node rem = qu.remove();
-
+            
             //2. Work
             System.out.print(rem.val + " ");
 
@@ -78,50 +76,54 @@ public class levelOrderTraversal{
         }
     }
 
-/*   APPROACH - 2 (recomended)
-    
-  public static void levelOrder(Node node) {
-    Queue<Node> q = new LinkedList<>();
-    q.add(node);
 
-    while(q.size() != 0){
-      int count = q.size();
-      
-      for(int i=0 ; i<count ; i++){
-      Node rmv = q.remove();
+    public static void levelOrderNULL_Method(Node root){
+    Queue<Node> qu = new LinkedList<>();
+            //seeding
+            qu.add(root);
+            qu.add(null);
 
-      System.out.print(rmv.data + " ");
+            while(qu.size() > 0 ){
+                if(qu.size() == 1 && qu.peek() == null){
+                    break;
+                }
+                //1. remove
+                Node rem = qu.remove();
+                if(rem == null){
+                    qu.add(null);
+                    System.out.println();
+                }
+                else{
+                    System.out.print(rem.val + " ");
 
-      if(rmv.left != null)  q.add(rmv.left);
-      if(rmv.right != null) q.add(rmv.right);     
+                    //3. Add all child If possible
+                    if(rem.left != null){
+                        qu.add(rem.left);
+                    }
+                    if(rem.right != null){
+                        qu.add(rem.right);
+                    }
+                }
+                
+            }
     }
 
-      System.out.println();
-    }
- }
 
-    
-    APPROACH - 3
-
-    public static void levelOrder(Node root){
-       Queue<Node> qu = new LinkedList<>();
+    public static void levelOrder3(Node root){
+        Queue<Node> qu = new LinkedList<>();
         //seeding
         qu.add(root);
-        qu.add(null);
 
         while(qu.size() > 0 ){
-            if(qu.size() == 1 && qu.peek() == null){
-                break;
-            }
-
-            Node rem = qu.remove();
-            if(rem == null){
-                qu.add(null);
-                System.out.println();
-            }
-            else{
-
+            int size = qu.size();
+            while(size-- > 0){
+                //1. remove
+                Node rem = qu.remove();
+            
+                //2. Work
                 System.out.print(rem.val + " ");
+
+                //3. Add all child If possible
                 if(rem.left != null){
                     qu.add(rem.left);
                 }
@@ -129,13 +131,11 @@ public class levelOrderTraversal{
                     qu.add(rem.right);
                 }
             }
+            System.out.println();
             
         }
     }
 
-
-
-*/
 
     public static void main(String [] args){
         Integer [] arr = {50,25,12,null,null,37, 30, null, null, null, 75, 62, null, 70, null, null, 87, null, null };
@@ -179,7 +179,11 @@ public class levelOrderTraversal{
 
         }
         
-        levelOrder(root);
+
+        // display(root);
+        // System.out.println(height(root));
+        // levelOrder(root);
+        levelOrderNULL_Method(root);
 
     }
 }
