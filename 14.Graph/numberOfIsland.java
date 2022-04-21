@@ -1,4 +1,4 @@
-class Solution {
+class numberOfIsland {
     
     static int [][] dir = {{1,0},{0,1}, {-1,0}, {0,-1}};
     public void dfs(char [][] grid, int i, int j){
