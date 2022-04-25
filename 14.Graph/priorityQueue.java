@@ -17,7 +17,7 @@ public class priorityQueue{
     public static void main(String [] args){
         //create
         PriorityQueue<Integer> pq = new PriorityQueue<>((a,b)->{
-            return b-a;
+            return a-b;
         }); 
         // PriorityQueue<Integer> pq = new PriorityQueue<>(Collections.reverseOrder()); 
 
@@ -30,14 +30,14 @@ public class priorityQueue{
         pq.add(8);
 
         // //peek
-         int top = pq.remove();
+        //  int top = pq.remove();
 
 
-        System.out.println(top);
+        // System.out.println(top);
 
         // // int size = pq.size();
         
-        // // System.out.println(size);
+        System.out.println(pq);
 
         // while(pq.size() != 0){
         //      System.out.println( pq.remove());

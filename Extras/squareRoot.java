@@ -5,15 +5,14 @@ public class squareRoot  {
     public static double square_Root(int num){    
         double temp;  
         double sqrtroot = num/2;  
-
+    
         do{  
             temp = sqrtroot;  
             sqrtroot = (temp+(num/temp))/2;  
         }   
         while((temp-sqrtroot)!= 0); 
-
         return sqrtroot;  
-    }  
+    } 
 
  
     public static void main(String[] args){
