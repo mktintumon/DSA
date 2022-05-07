@@ -1,4 +1,3 @@
-package DSA.basics;
 import java.util.Scanner;
 
 public class AnybaseAddition {

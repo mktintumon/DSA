@@ -1,6 +1,9 @@
 {
     "java.project.sourcePaths": [
         "Extras",
+        "14.Graph",
+        "13.GenericTree",
+        "12.BinarySearchTree",
         "11.BinaryTree",
         "09.TimeComplexity",
         "08.HashMap",
@@ -10,9 +13,7 @@
         "04.Recursion",
         "03.Strings",
         "00.Patterns",
-        "12.BinarySearchTree",
-        "13.GenericTree",
-        "14.Graph"
+        "01.Basics"
     ]
 
 }
