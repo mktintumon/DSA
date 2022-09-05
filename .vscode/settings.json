@@ -5,6 +5,7 @@
         "13.GenericTree",
         "12.BinarySearchTree",
         "11.BinaryTree",
+        "10.Stacks_Queue",
         "09.TimeComplexity",
         "08.HashMap",
         "07.DP",
@@ -12,8 +13,9 @@
         "05.Backtracking",
         "04.Recursion",
         "03.Strings",
+        "02.Array",
+        "01.Basics",
         "00.Patterns",
-        "01.Basics"
     ]
 
 }

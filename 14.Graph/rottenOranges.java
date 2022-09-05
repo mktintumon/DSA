@@ -2,7 +2,7 @@ import java.util.*;
 
 // Leetcode - 996
 
-class Solution {
+class rottenOranges {
     public class pair{
         int i; int j;
         pair(){}

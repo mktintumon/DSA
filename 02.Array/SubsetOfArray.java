@@ -1,4 +1,3 @@
-package DSA.Array;
 import java.util.Scanner;
 
 public class SubsetOfArray {
