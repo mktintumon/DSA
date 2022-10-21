@@ -35,7 +35,7 @@ public class spiral {
         //no need to initiate array for storing answer 
         // just find element and print it
         
-        while(count <= total){
+        while(count < total){
 
             // 4 loop - each loop have (count<total) to stop printing extra element at last
             for(int i=minR ; i<=maxR && count<total ; i++ ){
